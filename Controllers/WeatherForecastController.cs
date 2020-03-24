@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace webapi.Controllers
 {
     [ApiController]
-    [Route("api/lut-mgmt/[controller]")]
+    [Route("sis/openCore/api/lut-mgmt/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]

@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace webapi.Controllers
 {
     [ApiController]
-    [Route("sis/openCore/api/lut-mgmt/[controller]")]
+    [Route("sis/openCore/api/def-mgmt/[controller]")]
     public class DefGLController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
