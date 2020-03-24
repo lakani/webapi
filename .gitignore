@@ -61,3 +61,12 @@ bin/*/
 bin/*
 obj/*/
 obj/*
+bin/Debug/netcoreapp3.1/appsettings.Development.json
+bin/Debug/netcoreapp3.1/appsettings.json
+bin/Debug/netcoreapp3.1/webapi.deps.json
+bin/Debug/netcoreapp3.1/webapi.dll
+bin/Debug/netcoreapp3.1/webapi.exe
+bin/Debug/netcoreapp3.1/webapi.pdb
+bin/Debug/netcoreapp3.1/webapi.runtimeconfig.dev.json
+bin/Debug/netcoreapp3.1/webapi.runtimeconfig.json
+bin/Debug/netcoreapp3.1/Properties/launchSettings.json
