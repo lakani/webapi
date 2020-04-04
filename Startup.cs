@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Annotations;
+using System.Web.Http.Description;
 
 namespace webapi
 {
@@ -32,7 +34,12 @@ namespace webapi
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SIS OpenCore API", Version = "v1" });
+                c.EnableAnnotations();
+                //c.SwaggerGeneratorOptions.
+                c.TagActionsBy(p => p.RelativePath );
+                //c.TagActionsBy(apiDesc => apiDesc.GetAreaName());
             });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,13 +55,6 @@ namespace webapi
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
-            // specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "SIS OpenCore API V1");
-            });
-
             app.UseRouting();
 
             app.UseAuthorization();
@@ -62,6 +62,14 @@ namespace webapi
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "SIS OpenCore API V1");
+                
             });
         }
     }

@@ -4,11 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.SwaggerUI;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace webapi.Controllers
 {
     [ApiController]
-    [Route("sis/openCore/api/def-mgmt/[controller]")]
+    [Route("sis/openCore/api/v1/def-mgmt/[controller]")]
     public class DefGLController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -24,6 +28,8 @@ namespace webapi.Controllers
         }
 
         [HttpGet]
+        //[SwaggerOperation(Tags = new[] { "User" , "GLDef"  } )]
+        //[ApiExplorerSettings(GroupName = "bioregProjectsApi")]
         public IEnumerable<GLDef> Get()
         {
             var rng = new Random();
